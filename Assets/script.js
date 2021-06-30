@@ -1,6 +1,9 @@
 //DOM elements
 var currentDayEL = $('#currentDay');
-var scheduleEl = $('#schedule')
+var scheduleEl = $('#container');
+var newEventInput = $('#form-control');
+var issaEvent = $('#form-control');
+var saveButton = $('#saveBtn');
 
 //displays time
 function displayTime() {
@@ -10,27 +13,9 @@ function displayTime() {
 
 displayTime()
 
-function printSchedule() {
-    for (let i = 9; i < 18; i++) {
+scheduleEl.on('click', '.saveBtn', handleSaveEvent);
 
-    var projectRowEl = $('<tr>');
-
-    var hourEl = $('<td>').addClass('hour' + [i]).text(i);
-
-    var activityEl = $('<td>');
-    var activtyinputEl = $('<input>').addClass('form-control');
-    activityEl.append(activtyinputEl);
-
-    var saveButtonEl = $('<td>').text('bigchungus')
-
-    projectRowEl.append(
-        hourEl,
-        activityEl,
-        saveButtonEl
-    );
-
-    scheduleEl.append(projectRowEl);
-    }
+function handleSaveEvent(event) {
+    console.log(event.target);
+    console.log('for why');
 }
-
-printSchedule();
